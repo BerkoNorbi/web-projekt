@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+  background: #8b4444;
+  color: white;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.max-width {
+    width: 100%;
+  }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: stretch;
+  }
+  
+  .card {
+    width: 100vw;
+    height: 100vh;
+  }
+
+
+  .action-btn {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+  }
+  

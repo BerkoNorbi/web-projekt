@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+    <h3>Új tag felvétele</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Új személy</mat-label>
+      <input matInput placeholder="Józsi" focus formControlName="name" required>
+    </mat-form-field>
+    <div style="display: flex; justify-content: flex-end;">
+      
+      <button mat-button [mat-dialog-close]="form.value.name" [disabled]="form.invalid">Hozzáad</button>
+    </div>
+  </form>

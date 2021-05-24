@@ -1,0 +1,19 @@
+<mat-card *ngIf="group">
+    <mat-card-header>
+      <mat-card-title>{{group.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Felelős orvos: {{group.managingEntity}}</p>
+      <p>Csoport leírás: {{group.type}}</p>
+      <div class="lined">
+        Tagok:
+        <ul>
+          <li *ngFor="let member of group.members">
+            <span>{{member}}</span>
+         </li>
+       </ul>
+      </div>
+      <p>Létszám: {{group.quantity}}</p>
+    </mat-card-content>
+
+  </mat-card>

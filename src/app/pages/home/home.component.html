@@ -1,0 +1,6 @@
+<app-nav></app-nav>
+
+<app-container classes="container-1 flex">
+  <app-group-card class="item" *ngFor="let item of groups | async" [group]="item"></app-group-card>
+  <br>
+</app-container>
