@@ -27,7 +27,7 @@ export class GroupAddComponent implements OnInit {
     type: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     quantity:  new FormControl(0),
-    managingEntity:  new FormControl('Berkó Norbert'),
+    managingEntity:  new FormControl(''),
     managingEntityid:  new FormControl(''),
     members:  new FormArray([]),
   });

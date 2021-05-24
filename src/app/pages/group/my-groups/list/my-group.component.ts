@@ -18,7 +18,9 @@ import { User } from 'src/app/shared/models/user.model';
 export class MyGroupComponent implements OnInit {
   groups: Observable<Group[]> | null = null;
   users: Observable<User[]> | null = null;
-  name = '';
+  name : string ='';
+  
+  
  
 
   constructor (private dialog: MatDialog, private service: FbBaseService<Group>,private authService: AuthService,private serviceuser: FbBaseService<User>) { }
@@ -26,7 +28,7 @@ export class MyGroupComponent implements OnInit {
   ngOnInit(): void
   {
     this.getGroups();
-  
+    this.getUser();
   }
 
   getGroups(): void {
@@ -34,23 +36,16 @@ export class MyGroupComponent implements OnInit {
   }
 
   getUser(): void {
-    this.users = this.serviceuser.get_name_of_user_asd('User',this.authService.currentUseremail);
 
-    for(let item in this.users ){
-      console.log(item)
-    }
-
+    this.serviceuser.get_name_of_user_asd('User',this.authService.currentUseremail).subscribe(result => {
+      this.name = result[0].name });
   }
-
-
-
-
-
   openDialog(): void {
     const dialogRef = this.dialog.open(GroupAddComponent, {});
     // tslint:disable-next-line: deprecation
     dialogRef.afterClosed().subscribe((group: Group) => {
       group.managingEntityid = this.authService.currentUserId;
+      group.managingEntity = this.name;
 
   
       if (group?.name) {

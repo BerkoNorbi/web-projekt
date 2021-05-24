@@ -44,14 +44,14 @@ export class FbBaseService<T extends { id?: string }> {
 
 
 
-  get_name_of_user_asd(collectionName: string,email: string) :  Observable<T[]>{
+  get_name_of_user_asd(collectionName: string,email: string ,opStr = '==' ) :  Observable<T[]>{
+    this.angularfirestore.collection('User')
     return this.angularfirestore.collection(collectionName,
       ref => {
         let query: CollectionReference | Query = ref;
         if (email) {
-          query = query.where('email', '==', email);
-          console.log('ref::::::::::::::::');
-          
+          query = query.where('email', opStr as any, email);
+
         }
         return query;
       }
